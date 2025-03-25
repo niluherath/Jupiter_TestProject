@@ -1,5 +1,6 @@
 com\utils\ConfigLoader.class
 com\utils\PropertyUtils.class
 com\pageobjects\HomePage.class
+com\pageobjects\ContactPage.class
 com\utils\DateUtil.class
 com\utils\WaitUtil.class
