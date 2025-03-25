@@ -7,6 +7,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.ITestResult;
 
 import org.testng.annotations.*;
@@ -55,8 +56,12 @@ public abstract class BaseTest {
 
     @BeforeMethod
     public synchronized void setup() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+      //  WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--headless");
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.navigate().to(ConfigLoader.getInstance().getBaseURL());
     }

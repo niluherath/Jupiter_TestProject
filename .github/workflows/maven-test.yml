@@ -1,51 +1,27 @@
-name: Selenium Tests
+name: Selenium with TestNG - CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
   pull_request:
+    branches: [ "main" ]
 
 jobs:
-  test:
+  build:
+
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Set Up Java 23
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'  # Alternative: 'zulu', 'corretto'
-          java-version: '23'  # Change to match your project
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
 
-      - name: Set Up Chrome and Firefox
-        run: |
-          sudo apt update
-          sudo apt install -y google-chrome-stable firefox
+      - uses: browser-actions/setup-chrome@latest
+      - run: chrome --version
 
-      - name: Set Up ChromeDriver
-        run: |
-          CHROME_VERSION=$(google-chrome --version | awk '{print $3}')
-          CHROME_DRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
-          wget -q -O /tmp/chromedriver.zip "https://chromedriver.storage.googleapis.com/${CHROME_DRIVER_VERSION}/chromedriver_linux64.zip"
-          sudo unzip /tmp/chromedriver.zip -d /usr/local/bin/
-          sudo chmod +x /usr/local/bin/chromedriver
-
-      - name: Set Up GeckoDriver (For Firefox)
-        run: |
-          GECKO_DRIVER_VERSION=$(curl -s https://api.github.com/repos/mozilla/geckodriver/releases/latest | jq -r '.tag_name')
-          wget -q -O /tmp/geckodriver.tar.gz "https://github.com/mozilla/geckodriver/releases/download/${GECKO_DRIVER_VERSION}/geckodriver-${GECKO_DRIVER_VERSION}-linux64.tar.gz"
-          sudo tar -xzf /tmp/geckodriver.tar.gz -C /usr/local/bin/
-          sudo chmod +x /usr/local/bin/geckodriver
-
-      - name: Verify Chrome & Firefox Installation
-        run: |
-          google-chrome --version
-          chromedriver --version
-          firefox --version
-          geckodriver --version
-
-      - name: Build and Run Tests
-        run: mvn clean test
+      - name: Build with Maven
+        run: mvn -B clean test
