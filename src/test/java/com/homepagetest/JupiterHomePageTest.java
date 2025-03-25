@@ -1,11 +1,11 @@
-package com.test.homepage;
+package com.homepagetest;
 
 import com.base.BaseTest;
 import com.pageobjects.HomePage;
 import org.testng.Assert;
 
 public class JupiterHomePageTest extends BaseTest {
-    @org.testng.annotations.Test(description="This test validates the Trade me landing page title")
+    @org.testng.annotations.Test(description="This test validates the Jupiter toys hope page title")
     public void testHomePage()
     {
         logger = extent.createTest("To verify Jupiter toys page title");

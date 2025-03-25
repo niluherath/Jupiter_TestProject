@@ -1,6 +1,8 @@
 package com.base;
 import java.io.File;
 import java.io.IOException;
+
+import com.github.javafaker.Faker;
 import com.utils.ConfigLoader;
 import com.utils.DateUtil;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -28,6 +30,11 @@ public abstract class BaseTest {
     protected ExtentTest logger;
 
     private static String PROPERTY_USER_DIR = "user.dir";
+    Faker faker = new Faker();
+    protected String name = faker.name().fullName();
+    protected String emailAddress = faker.name().firstName()+"@gmail.com";
+    protected String message = "this is test automation";
+
 
     @BeforeSuite
     public void startReport() {
@@ -60,7 +67,7 @@ public abstract class BaseTest {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--headless");
+     //   options.addArguments("--headless");
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.navigate().to(ConfigLoader.getInstance().getBaseURL());
