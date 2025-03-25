@@ -6,8 +6,6 @@ import com.pageobjects.HomePage;
 import org.testng.Assert;
 
 public class ContactPageTest extends BaseTest {
-
-    /**
     @org.testng.annotations.Test(description="This test validates the error messages on contact page")
     public void testContactPageForm()
     {
@@ -50,6 +48,4 @@ public class ContactPageTest extends BaseTest {
 
 
     }
-
-    **/
 }
