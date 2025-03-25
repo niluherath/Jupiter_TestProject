@@ -36,7 +36,7 @@ public abstract class BaseTest {
     protected String message = "this is test automation";
 
 
-    @BeforeSuite
+    @BeforeClass
     public void startReport() {
         extent = new ExtentReports();
         String timeStamp = DateUtil.getDateInyyyyMMddhhmmssFormat();
@@ -107,7 +107,7 @@ public abstract class BaseTest {
         logger.info("<b>Then</b>"+then);
     }
 
-    @AfterSuite
+    @AfterClass
     public void endReport() {
         extent.flush();
     }
