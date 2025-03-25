@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-03-25T23:15:53 NZDT" name="Surefire suite" finished-at="2025-03-25T23:16:14 NZDT" duration-ms="20486">
+  <suite started-at="2025-03-25T23:22:36 NZDT" name="Surefire suite" finished-at="2025-03-25T23:22:55 NZDT" duration-ms="18985">
     <groups>
     </groups>
-    <test started-at="2025-03-25T23:15:53 NZDT" name="Surefire test" finished-at="2025-03-25T23:16:14 NZDT" duration-ms="20486">
+    <test started-at="2025-03-25T23:22:36 NZDT" name="Surefire test" finished-at="2025-03-25T23:22:55 NZDT" duration-ms="18985">
       <class name="com.test.contactpagetest.ContactPageTest">
-        <test-method is-config="true" signature="startReport()[pri:0, instance:com.test.contactpagetest.ContactPageTest@67a8bcbb]" started-at="2025-03-25T23:15:53 NZDT" name="startReport" finished-at="2025-03-25T23:15:53 NZDT" duration-ms="210" status="PASS">
+        <test-method is-config="true" signature="startReport()[pri:0, instance:com.test.contactpagetest.ContactPageTest@67a8bcbb]" started-at="2025-03-25T23:22:36 NZDT" name="startReport" finished-at="2025-03-25T23:22:36 NZDT" duration-ms="215" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startReport -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.test.contactpagetest.ContactPageTest@67a8bcbb]" started-at="2025-03-25T23:15:53 NZDT" name="setup" finished-at="2025-03-25T23:15:58 NZDT" duration-ms="4212" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.test.contactpagetest.ContactPageTest@67a8bcbb]" started-at="2025-03-25T23:22:36 NZDT" name="setup" finished-at="2025-03-25T23:22:40 NZDT" duration-ms="4212" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="testContactPageForm()[pri:0, instance:com.test.contactpagetest.ContactPageTest@67a8bcbb]" started-at="2025-03-25T23:15:58 NZDT" name="testContactPageForm" description="This test validates the error messages on contact page" finished-at="2025-03-25T23:15:59 NZDT" duration-ms="1081" status="PASS">
+        <test-method signature="testContactPageForm()[pri:0, instance:com.test.contactpagetest.ContactPageTest@67a8bcbb]" started-at="2025-03-25T23:22:40 NZDT" name="testContactPageForm" description="This test validates the error messages on contact page" finished-at="2025-03-25T23:22:41 NZDT" duration-ms="1055" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testContactPageForm -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.test.contactpagetest.ContactPageTest@67a8bcbb]" started-at="2025-03-25T23:15:59 NZDT" name="getResult" finished-at="2025-03-25T23:15:59 NZDT" duration-ms="173" status="PASS">
+        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.test.contactpagetest.ContactPageTest@67a8bcbb]" started-at="2025-03-25T23:22:41 NZDT" name="getResult" finished-at="2025-03-25T23:22:42 NZDT" duration-ms="201" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -30,15 +30,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.test.contactpagetest.ContactPageTest@67a8bcbb]" started-at="2025-03-25T23:15:59 NZDT" name="setup" finished-at="2025-03-25T23:16:03 NZDT" duration-ms="3735" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.test.contactpagetest.ContactPageTest@67a8bcbb]" started-at="2025-03-25T23:22:42 NZDT" name="setup" finished-at="2025-03-25T23:22:45 NZDT" duration-ms="3682" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="testContactPageFormSubmission()[pri:0, instance:com.test.contactpagetest.ContactPageTest@67a8bcbb]" started-at="2025-03-25T23:16:03 NZDT" name="testContactPageFormSubmission" finished-at="2025-03-25T23:16:09 NZDT" duration-ms="6673" status="PASS">
+        <test-method signature="testContactPageFormSubmission()[pri:0, instance:com.test.contactpagetest.ContactPageTest@67a8bcbb]" started-at="2025-03-25T23:22:45 NZDT" name="testContactPageFormSubmission" finished-at="2025-03-25T23:22:50 NZDT" duration-ms="5152" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testContactPageFormSubmission -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.test.contactpagetest.ContactPageTest@67a8bcbb]" started-at="2025-03-25T23:16:09 NZDT" name="getResult" finished-at="2025-03-25T23:16:09 NZDT" duration-ms="188" status="PASS">
+        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.test.contactpagetest.ContactPageTest@67a8bcbb]" started-at="2025-03-25T23:22:50 NZDT" name="getResult" finished-at="2025-03-25T23:22:51 NZDT" duration-ms="200" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -49,25 +49,25 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method is-config="true" signature="endReport()[pri:0, instance:com.test.contactpagetest.ContactPageTest@67a8bcbb]" started-at="2025-03-25T23:16:09 NZDT" name="endReport" finished-at="2025-03-25T23:16:10 NZDT" duration-ms="269" status="PASS">
+        <test-method is-config="true" signature="endReport()[pri:0, instance:com.test.contactpagetest.ContactPageTest@67a8bcbb]" started-at="2025-03-25T23:22:51 NZDT" name="endReport" finished-at="2025-03-25T23:22:51 NZDT" duration-ms="271" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endReport -->
       </class> <!-- com.test.contactpagetest.ContactPageTest -->
       <class name="com.test.homepagetest.JupiterHomePageTest">
-        <test-method is-config="true" signature="startReport()[pri:0, instance:com.test.homepagetest.JupiterHomePageTest@6b3a1151]" started-at="2025-03-25T23:16:10 NZDT" name="startReport" finished-at="2025-03-25T23:16:10 NZDT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="startReport()[pri:0, instance:com.test.homepagetest.JupiterHomePageTest@6b3a1151]" started-at="2025-03-25T23:22:51 NZDT" name="startReport" finished-at="2025-03-25T23:22:51 NZDT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startReport -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.test.homepagetest.JupiterHomePageTest@6b3a1151]" started-at="2025-03-25T23:16:10 NZDT" name="setup" finished-at="2025-03-25T23:16:13 NZDT" duration-ms="3647" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.test.homepagetest.JupiterHomePageTest@6b3a1151]" started-at="2025-03-25T23:22:51 NZDT" name="setup" finished-at="2025-03-25T23:22:55 NZDT" duration-ms="3711" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="testHomePage()[pri:0, instance:com.test.homepagetest.JupiterHomePageTest@6b3a1151]" started-at="2025-03-25T23:16:13 NZDT" name="testHomePage" description="This test validates the Jupiter toys hope page title" finished-at="2025-03-25T23:16:13 NZDT" duration-ms="28" status="PASS">
+        <test-method signature="testHomePage()[pri:0, instance:com.test.homepagetest.JupiterHomePageTest@6b3a1151]" started-at="2025-03-25T23:22:55 NZDT" name="testHomePage" description="This test validates the Jupiter toys hope page title" finished-at="2025-03-25T23:22:55 NZDT" duration-ms="31" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testHomePage -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.test.homepagetest.JupiterHomePageTest@6b3a1151]" started-at="2025-03-25T23:16:13 NZDT" name="getResult" finished-at="2025-03-25T23:16:14 NZDT" duration-ms="171" status="PASS">
+        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.test.homepagetest.JupiterHomePageTest@6b3a1151]" started-at="2025-03-25T23:22:55 NZDT" name="getResult" finished-at="2025-03-25T23:22:55 NZDT" duration-ms="158" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -78,7 +78,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method is-config="true" signature="endReport()[pri:0, instance:com.test.homepagetest.JupiterHomePageTest@6b3a1151]" started-at="2025-03-25T23:16:14 NZDT" name="endReport" finished-at="2025-03-25T23:16:14 NZDT" duration-ms="49" status="PASS">
+        <test-method is-config="true" signature="endReport()[pri:0, instance:com.test.homepagetest.JupiterHomePageTest@6b3a1151]" started-at="2025-03-25T23:22:55 NZDT" name="endReport" finished-at="2025-03-25T23:22:55 NZDT" duration-ms="48" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endReport -->
