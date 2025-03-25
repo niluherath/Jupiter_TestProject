@@ -26,8 +26,12 @@ jobs:
       - name: Build and Run Tests
         run: mvn clean test
       - name: Upload Test Reports
-        if: always()  # Ensures reports are uploaded even if tests fail
+        if: exists('target/reports/')
         uses: actions/upload-artifact@v4
         with:
           name: extent-report
-          path: target/reports/
+          path: target/reports/*
+          if-no-files-found: warn
+          compression-level: 6
+          overwrite: false
+          include-hidden-files: false
