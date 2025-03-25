@@ -5,6 +5,7 @@ import java.io.IOException;
 import com.github.javafaker.Faker;
 import com.utils.ConfigLoader;
 import com.utils.DateUtil;
+import com.utils.ExtentManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
@@ -38,17 +39,20 @@ public abstract class BaseTest {
 
     @BeforeClass
     public void startReport() {
-        extent = new ExtentReports();
-        String timeStamp = DateUtil.getDateInyyyyMMddhhmmssFormat();
+      //  extent = new ExtentReports();
+      //  String timeStamp = DateUtil.getDateInyyyyMMddhhmmssFormat();
 
-        spark = new ExtentSparkReporter(System.getProperty(PROPERTY_USER_DIR) + "/target/ExtentReport."+timeStamp+".html");
-        extent.attachReporter(spark);
+     //   spark = new ExtentSparkReporter(System.getProperty(PROPERTY_USER_DIR) + "/target/ExtentReport."+timeStamp+".html");
+     //   extent.attachReporter(spark);
+
+
+        extent = ExtentManager.getInstance();
         extent.setSystemInfo("Host Name", "Jupiter toys project");
         extent.setSystemInfo("Environment", "");
         extent.setSystemInfo("User Name", "Nilu Herath");
-        spark.config().setDocumentTitle("Jupiter toys Project");
-        spark.config().setReportName("Jupiter toys Test Project ");
-        spark.config().setTheme(Theme.STANDARD);
+        //spark.config().setDocumentTitle("Jupiter toys Project");
+        //spark.config().setReportName("Jupiter toys Test Project ");
+        //spark.config().setTheme(Theme.STANDARD);
     }
 
     public static String getScreenShot(WebDriver driver, String screenshotName) throws IOException {
@@ -63,7 +67,6 @@ public abstract class BaseTest {
 
     @BeforeMethod
     public synchronized void setup() {
-      //  WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");

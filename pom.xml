@@ -25,10 +25,9 @@
             </plugin>
 
 
-            </plugins>
+        </plugins>
 
     </build>
-
 
 
     <dependencies>
@@ -48,7 +47,6 @@
             <artifactId>extentreports</artifactId>
             <version>5.0.9</version>
         </dependency>
-
 
 
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->

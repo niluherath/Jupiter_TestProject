@@ -2,6 +2,7 @@ package com.test.homepagetest;
 
 import com.base.BaseTest;
 import com.pageobjects.HomePage;
+import com.utils.ExtentManager;
 import org.testng.Assert;
 
 public class HomePageTest extends BaseTest {

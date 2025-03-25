@@ -3,6 +3,7 @@ package com.test.contactpagetest;
 import com.base.BaseTest;
 import com.pageobjects.ContactPage;
 import com.pageobjects.HomePage;
+import com.utils.ExtentManager;
 import org.testng.Assert;
 
 public class ContactPageTest extends BaseTest {
