@@ -35,11 +35,11 @@ public abstract class BaseTest {
 
         spark = new ExtentSparkReporter(System.getProperty(PROPERTY_USER_DIR) + "/target/ExtentReport."+timeStamp+".html");
         extent.attachReporter(spark);
-        extent.setSystemInfo("Host Name", "Nilu Trade me project");
+        extent.setSystemInfo("Host Name", "Jupiter toys project");
         extent.setSystemInfo("Environment", "");
         extent.setSystemInfo("User Name", "Nilu Herath");
-        spark.config().setDocumentTitle("Nilu Trade me Project");
-        spark.config().setReportName("Nilu Trade me Test Project ");
+        spark.config().setDocumentTitle("Jupiter toys Project");
+        spark.config().setReportName("Jupiter toys Test Project ");
         spark.config().setTheme(Theme.STANDARD);
     }
 
