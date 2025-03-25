@@ -10,6 +10,7 @@ public class HomePage {
     private WebDriver driver;
     private By jupiterToysHeader = By.xpath("//h1[normalize-space()='Jupiter Toys']");
     private By contactTab = By.xpath("//a[normalize-space()='Contact']");
+    private By startShoppingButton = By.xpath("//a[normalize-space()='Start Shopping »']");
     public HomePage(WebDriver driver) {
         this.driver = driver;
         WaitUtil.waitForElementToLoad(driver, jupiterToysHeader);
@@ -22,6 +23,11 @@ public class HomePage {
 
         driver.findElement(contactTab).click();
         return driver.getTitle();
+    }
+
+    public void clickOnStartShoppingButton() {
+        driver.findElement(startShoppingButton).click();
+
     }
 
 
