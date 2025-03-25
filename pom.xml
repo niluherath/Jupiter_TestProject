@@ -23,7 +23,8 @@
                     <release>23</release>
                 </configuration>
             </plugin>
-        </plugins>
+            </plugins>
+
     </build>
 
     <dependencies>
