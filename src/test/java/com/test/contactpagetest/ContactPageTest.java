@@ -11,9 +11,8 @@ public class ContactPageTest extends BaseTest {
     @org.testng.annotations.Test(description = "This test validates the error messages on contact page")
     public void testContactPageFormErrorMessagesForMandatoryFields() {
         logger = extent.createTest("To verify contact page form error messages on mandatory fields");
-        given(" user arrives on contact page");
-        when(" submit button on contact page is clicked without entering value for mandatory fields");
-
+        given(" you arrive on jupiter toys page");
+        when(" when you go From the home page go to contact page");
         HomePage homePage = new HomePage(driver);
         homePage.clickContactTab();
         ContactPage contactPage = new ContactPage(driver);
@@ -39,8 +38,8 @@ public class ContactPageTest extends BaseTest {
     @org.testng.annotations.Test(description = "")
     public void testContactPageFormSucessfulSubmission() {
         logger = extent.createTest("To verify contact page form submission sucessful submission");
-        given(" user arrives on contact page");
-        when(" submit button on contact page is clicked");
+        given(" you arrive on jupiter toys page");
+        when(" you go From the home page go to contact page");
         HomePage homePage = new HomePage(driver);
         homePage.clickContactTab();
 
