@@ -1,11 +1,10 @@
 package com.base;
 
+import java.util.logging.Logger;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public abstract class BasePage {
-    protected static Logger logger = LoggerFactory.getLogger(BasePage.class);
+    protected static Logger logger = Logger.getLogger(BasePage.class.getName());
 
 
 }

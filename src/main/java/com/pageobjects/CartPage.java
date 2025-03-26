@@ -20,7 +20,6 @@ public class CartPage extends BasePage {
     private static final String TBODY = "//tbody";
     private static final String ROW = "//table[@class='table table-striped cart-items']/tbody/tr";
     private static final String CELL_PATH = "//table[@class='table table-striped cart-items']/tbody/tr[";
-    private static final String ROW_DATA = "Row is {}. Data is {}.";
 
     public CartPage(WebDriver driver) {
         this.driver = driver;
@@ -45,7 +44,7 @@ public class CartPage extends BasePage {
         }
         subTotalCalculation = unitPrice * noOfItems;
         String subTotal = "$" + subTotalCalculation;
-        logger.info("Subtotal {}. for item name {}. with no of items {}.",subTotal, itemName, noOfItems);
+        logger.info("Subtotal "+subTotal+" for item name "+itemName + " with no of items "+ noOfItems);
 
         By rowElements = By.xpath(TBODY);
         WaitUtil.waitForElementToLoad(driver, rowElements);
@@ -62,7 +61,7 @@ public class CartPage extends BasePage {
             for (int j = 0; j < headers.size(); j++) {
                 rowMap.put(headers.get(j), cells.get(j).getText().trim());
             }
-            logger.debug(ROW_DATA, i, rowMap);
+            logger.info("Row is: "+ i + "Data is: " + rowMap);
 
             if (rowMap.get("Item").equals(itemName) && rowMap.get("Subtotal").equals(subTotal)) {
                 found = true;
@@ -93,7 +92,6 @@ public class CartPage extends BasePage {
         By rowElements = By.xpath(TBODY);
         WaitUtil.waitForElementToLoad(driver, rowElements);
 
-
         List<String> headers = getHeaderStringList();
 
         List<WebElement> rows = driver.findElements(By.xpath(ROW));
@@ -106,7 +104,7 @@ public class CartPage extends BasePage {
             for (int j = 0; j < headers.size(); j++) {
                 rowMap.put(headers.get(j), cells.get(j).getText().trim());
             }
-            logger.debug(ROW_DATA, i, rowMap);
+            logger.info("Row is: "+ i + "Data is: " + rowMap);
 
             if (rowMap.get("Item").equals(itemName) && rowMap.get("Price").equals("$" + unitPrice)) {
                 found = true;
@@ -142,7 +140,7 @@ public class CartPage extends BasePage {
             for (int j = 0; j < headers.size(); j++) {
                 rowMap.put(headers.get(j), cells.get(j).getText().trim());
             }
-            logger.debug(ROW_DATA, i, rowMap);
+            logger.info("Row is: "+ i + "Data is: " + rowMap);
 
             if (rowMap.get("Item").equals(itemName)) {
                 subTotalFromTable = rowMap.get("Subtotal");
@@ -169,7 +167,7 @@ public class CartPage extends BasePage {
             for (int j = 0; j < headers.size(); j++) {
                 rowMap.put(headers.get(j), cells.get(j).getText().trim());
             }
-            logger.debug(ROW_DATA, i, rowMap);
+            logger.info("Row is: "+ i + "Data is: " + rowMap);
 
             if (rowMap.get("Item").equals(itemName)) {
                 price = rowMap.get("Price");

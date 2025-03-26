@@ -89,15 +89,6 @@ URL of the website = https://jupiter.cloud.planittesting.com/#/
   <version>4.30.0</version>
   </dependency>
 
-
-* slf4j dependency for logging
-  <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
-  <dependency>
-  <groupId>org.slf4j</groupId>
-  <artifactId>slf4j-api</artifactId>
-  <version>2.1.0-alpha1</version>
-  </dependency>
-
 * javafaker dependency to create random strings
   <dependency>
   <groupId>com.github.javafaker</groupId>
