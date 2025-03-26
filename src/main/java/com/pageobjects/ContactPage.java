@@ -1,5 +1,6 @@
 package com.pageobjects;
 
+import com.base.BasePage;
 import com.utils.WaitUtil;
 import org.openqa.selenium.By;
 
@@ -9,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 
 
 
-public class ContactPage {
+public class ContactPage extends BasePage {
 
     private WebDriver driver;
     private By submitButton = By.xpath("//a[normalize-space()='Submit']");

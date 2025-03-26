@@ -1,11 +1,12 @@
 package com.pageobjects;
 
+import com.base.BasePage;
 import com.utils.WaitUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 
-public class ShoppingMenuPage {
+public class ShoppingMenuPage extends BasePage {
 
     private WebDriver driver;
     private By buyStuffedFrogButton = By.xpath("//li[@id='product-2']//a[@class='btn btn-success'][normalize-space()='Buy']");
@@ -21,16 +22,29 @@ public class ShoppingMenuPage {
         return driver.getTitle();
     }
 
-    public void clickBuyFluffyButton() {
-        driver.findElement(buyFluffyBunnyButton).click();
+    public void clickBuyFluffyBunnyButton(int noOfTimes) {
+
+        for (int i = 0; i < noOfTimes; i++) {
+            driver.findElement(buyFluffyBunnyButton).click();
+            logger.info("Clicked button " + (i + 1) + " times");
+        }
     }
 
-    public void clickBuyStuffedFrogButton() {
-        driver.findElement(buyStuffedFrogButton).click();
+    public void clickBuyStuffedFrogButton(int noOfTimes) {
+
+        for (int i = 0; i < noOfTimes; i++) {
+            driver.findElement(buyStuffedFrogButton).click();
+            logger.info("Clicked button " + (i + 1) + " times");
+           // System.out.println("Clicked button " + (i + 1) + " times");
+        }
     }
 
-    public void clickBuyValentineBearButton() {
-        driver.findElement(buyValentineBearButton).click();
+    public void clickBuyValentineBearButton(int noOfTimes) {
+
+        for (int i = 0; i < noOfTimes; i++) {
+            driver.findElement(buyValentineBearButton).click();
+            logger.info("Clicked button " + (i + 1) + " times");
+        }
     }
 
     public void clickCartButton() {

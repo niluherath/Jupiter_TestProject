@@ -1,11 +1,12 @@
 package com.pageobjects;
 
+import com.base.BasePage;
 import com.utils.WaitUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 
-public class HomePage {
+public class HomePage extends BasePage {
 
     private WebDriver driver;
     private By jupiterToysHeader = By.xpath("//h1[normalize-space()='Jupiter Toys']");
