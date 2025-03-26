@@ -1,0 +1,4 @@
+com\base\BaseTest.class
+com\test\shoppingcarttest\ShoppingCartTest.class
+com\test\contactpagetest\ContactPageTest.class
+com\test\homepagetest\HomePageTest.class

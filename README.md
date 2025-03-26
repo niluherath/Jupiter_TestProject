@@ -116,6 +116,7 @@ URL of the website = https://jupiter.cloud.planittesting.com/#/
 
 1. src/main/java/com.base
    contains BasePage class
+
 2. src/main/java/com.pageObjects
    contains page objects CartPage, ContactPage, HomePage, ShoppingMenuPage
    page objects inherit form BasePage class
@@ -123,17 +124,22 @@ URL of the website = https://jupiter.cloud.planittesting.com/#/
 3. src/main/java/com.utils
    contains, ConfigLoader, DateUtil, ExtentManager, PropertyUtils, WaitUtil
    ConfigLoader : calls the property utils class to get env variables from config properties file
+
 4. src/main/java/config.properties
    stores env variables
+
 5. src/test/java/com.base
    contains the BaseTest class
+
 6. src/test/java/com.test
    contains test classes. Test classes inherit from BaseTest class
 
 7. src/test/java/com.suite
    contains testng.xml files
+
 8. pom.xml
    contains the maven dependencies
+
 9. maven-test.yml:
    has steps to run in git hub actions
    

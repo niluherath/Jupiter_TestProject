@@ -9,10 +9,10 @@ import org.openqa.selenium.WebDriver;
 public class ShoppingMenuPage extends BasePage {
 
     private WebDriver driver;
-    private By buyStuffedFrogButton = By.xpath("//li[@id='product-2']//a[@class='btn btn-success'][normalize-space()='Buy']");
-    private By buyFluffyBunnyButton = By.xpath("//li[@id='product-4']//a[@class='btn btn-success'][normalize-space()='Buy']");
-    private By buyValentineBearButton = By.xpath("//li[@id='product-7']//a[@class='btn btn-success'][normalize-space()='Buy']");
-    private By cartButton = By.xpath("//a[@href='#/cart']");
+    private final By buyStuffedFrogButton = By.xpath("//li[@id='product-2']//a[@class='btn btn-success'][normalize-space()='Buy']");
+    private final By buyFluffyBunnyButton = By.xpath("//li[@id='product-4']//a[@class='btn btn-success'][normalize-space()='Buy']");
+    private final By buyValentineBearButton = By.xpath("//li[@id='product-7']//a[@class='btn btn-success'][normalize-space()='Buy']");
+    private final By cartButton = By.xpath("//a[@href='#/cart']");
 
     public ShoppingMenuPage(WebDriver driver) {
         this.driver = driver;

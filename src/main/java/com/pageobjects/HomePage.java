@@ -9,9 +9,10 @@ import org.openqa.selenium.WebDriver;
 public class HomePage extends BasePage {
 
     private WebDriver driver;
-    private By jupiterToysHeader = By.xpath("//h1[normalize-space()='Jupiter Toys']");
-    private By contactTab = By.xpath("//a[normalize-space()='Contact']");
-    private By startShoppingButton = By.xpath("//a[normalize-space()='Start Shopping »']");
+    private final By jupiterToysHeader = By.xpath("//h1[normalize-space()='Jupiter Toys']");
+    private final By contactTab = By.xpath("//a[normalize-space()='Contact']");
+    private final By startShoppingButton = By.xpath("//a[normalize-space()='Start Shopping »']");
+
     public HomePage(WebDriver driver) {
         this.driver = driver;
         WaitUtil.waitForElementToLoad(driver, jupiterToysHeader);
@@ -20,10 +21,10 @@ public class HomePage extends BasePage {
         return driver.getTitle();
     }
 
-    public String clickContactTab() {
+    public void clickContactTab() {
 
         driver.findElement(contactTab).click();
-        return driver.getTitle();
+        driver.getTitle();
     }
 
     public void clickOnStartShoppingButton() {

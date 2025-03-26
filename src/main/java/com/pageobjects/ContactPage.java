@@ -12,15 +12,15 @@ import org.openqa.selenium.WebDriver;
 
 public class ContactPage extends BasePage {
 
-    private WebDriver driver;
-    private By submitButton = By.xpath("//a[normalize-space()='Submit']");
-    private By errorForeNameIsRequired = By.xpath("//span[@id='forename-err']");
-    private By errorEamilIsRequired = By.xpath("//span[@id='email-err']");
-    private By errorMessageIsRequired = By.xpath("//span[@id='message-err']");
-    private By foreNameInputField = By.xpath("//input[@id='forename']");
-    private By emailInputField = By.xpath("//input[@id='email']");
-    private By messageInputField = By.xpath("//textarea[@id='message']");
-    private By successMessage = By.xpath("//div[@class='alert alert-success']");
+    private final WebDriver driver;
+    private final By submitButton = By.xpath("//a[normalize-space()='Submit']");
+    private final By errorForeNameIsRequired = By.xpath("//span[@id='forename-err']");
+    private final By errorEamilIsRequired = By.xpath("//span[@id='email-err']");
+    private final By errorMessageIsRequired = By.xpath("//span[@id='message-err']");
+    private final By foreNameInputField = By.xpath("//input[@id='forename']");
+    private final By emailInputField = By.xpath("//input[@id='email']");
+    private final By messageInputField = By.xpath("//textarea[@id='message']");
+    private final By successMessage = By.xpath("//div[@class='alert alert-success']");
     public ContactPage(WebDriver driver) {
         this.driver = driver;
         WaitUtil.waitForElementToLoad(driver, submitButton);
