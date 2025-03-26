@@ -165,6 +165,3 @@ extent report will be created in target folder with a timestamp
 As soon as new code gets pushed to the repository GitHub actions, a workflow will be triggered
 Once the workflow is completed you will be able to download a extent report
 
-
-**Project issues**
-Shopping cart test fails as at times this page takes more time to load. This only happens in the CI/CD run
