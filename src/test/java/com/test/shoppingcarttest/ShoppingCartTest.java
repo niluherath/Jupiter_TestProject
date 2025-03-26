@@ -30,11 +30,12 @@ public class ShoppingCartTest extends BaseTest {
         Assert.assertTrue(cartPage.verifyPriceForEachProduct("Fluffy Bunny"));
         Assert.assertTrue(cartPage.verifyPriceForEachProduct("Valentine Bear"));
 
-        double subTotalForStuffedFrogs = cartPage.findSubtotal(2, "Stuffed Frog");
-        double subtotalForFluffyBunny = cartPage.findSubtotal(5, "Fluffy Bunny");
-        double subTotalForValentineBear = cartPage.findSubtotal(3, "Valentine Bear");
+
+
+        double subTotalForStuffedFrogs = cartPage.getSubtotal("Stuffed Frog");
+        double subtotalForFluffyBunny = cartPage.getSubtotal("Fluffy Bunny");
+        double subTotalForValentineBear = cartPage.getSubtotal("Valentine Bear");
         double total = subTotalForStuffedFrogs + subTotalForValentineBear + subtotalForFluffyBunny;
-        System.out.println(cartPage.getTotal());
         Assert.assertEquals(cartPage.getTotal(), total);
 
 

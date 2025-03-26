@@ -35,7 +35,6 @@ public class ShoppingMenuPage extends BasePage {
         for (int i = 0; i < noOfTimes; i++) {
             driver.findElement(buyStuffedFrogButton).click();
             logger.info("Clicked button " + (i + 1) + " times");
-           // System.out.println("Clicked button " + (i + 1) + " times");
         }
     }
 

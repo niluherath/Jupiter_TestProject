@@ -33,18 +33,8 @@ public class CartPage extends BasePage {
         double subTotalCalculation;
 
         switch (itemName) {
-            case "Stuffed Frog":
-                itemName = "Stuffed Frog";
-                unitPrice = 10.99;
-
-                break;
-            case "Fluffy Bunny":
-                itemName = "Fluffy Bunny";
-                unitPrice = 9.99;
-                break;
-            case "Valentine Bear":
-                itemName = "Valentine Bear";
-                unitPrice = 14.99;
+            case "Stuffed Frog", "Fluffy Bunny", "Valentine Bear":
+                unitPrice = this.getPrice(itemName);
                 break;
             default:
                 logger.info("could not find item name");
@@ -56,12 +46,7 @@ public class CartPage extends BasePage {
         By rowElements = By.xpath("//tbody");
         WaitUtil.waitForElementToLoad(driver, rowElements);
 
-        List<WebElement> headerElements = driver.findElements(By.xpath("//table[@class='table table-striped cart-items']/thead/tr/th"));
-        List<String> headers = new ArrayList<>();
-        for (WebElement header : headerElements) {
-            headers.add(header.getText().trim());  // Store headers in a List
-        }
-
+        List<String> headers = getHeaderStringList();
 
         List<WebElement> rows = driver.findElements(By.xpath("//table[@class='table table-striped cart-items']/tbody/tr"));
         Map<String, String> rowMap = new HashMap<>();
@@ -89,16 +74,13 @@ public class CartPage extends BasePage {
 
         switch (itemName) {
             case "Stuffed Frog":
-                itemName = "Stuffed Frog";
                 unitPrice = 10.99;
 
                 break;
             case "Fluffy Bunny":
-                itemName = "Fluffy Bunny";
                 unitPrice = 9.99;
                 break;
             case "Valentine Bear":
-                itemName = "Valentine Bear";
                 unitPrice = 14.99;
                 break;
             default:
@@ -109,11 +91,7 @@ public class CartPage extends BasePage {
         WaitUtil.waitForElementToLoad(driver, rowElements);
 
 
-        List<WebElement> headerElements = driver.findElements(By.xpath("//table[@class='table table-striped cart-items']/thead/tr/th"));
-        List<String> headers = new ArrayList<>();
-        for (WebElement header : headerElements) {
-            headers.add(header.getText().trim());  // Store headers in a List
-        }
+        List<String> headers = getHeaderStringList();
 
         List<WebElement> rows = driver.findElements(By.xpath("//table[@class='table table-striped cart-items']/tbody/tr"));
         Map<String, String> rowMap = new HashMap<>();
@@ -135,32 +113,72 @@ public class CartPage extends BasePage {
         return found;
     }
 
-
-    public double findSubtotal(int noOfItems, String itemName) {
-        double unitPrice = 0.00;
-        double subTotalCalculation;
-
-        switch (itemName) {
-            case "Stuffed Frog":
-                itemName = "Stuffed Frog";
-                unitPrice = 10.99;
-
-                break;
-            case "Fluffy Bunny":
-                itemName = "Fluffy Bunny";
-                unitPrice = 9.99;
-                break;
-            case "Valentine Bear":
-                itemName = "Valentine Bear";
-                unitPrice = 14.99;
-                break;
-            default:
-                logger.info("could not find item name");
+    private List<String> getHeaderStringList() {
+        List<WebElement> headerElements = driver.findElements(By.xpath("//table[@class='table table-striped cart-items']/thead/tr/th"));
+        List<String> headers = new ArrayList<>();
+        for (WebElement header : headerElements) {
+            headers.add(header.getText().trim());  // Store headers in a List
         }
-        subTotalCalculation = unitPrice * noOfItems;
-        String subTotal = "$" + subTotalCalculation;
-        logger.info("sub total total for " + noOfItems + " " + itemName + " is: " + subTotal);
-        return subTotalCalculation;
+        return headers;
+    }
+
+    public double getSubtotal(String itemName){
+        By rowElements = By.xpath("//tbody");
+        WaitUtil.waitForElementToLoad(driver, rowElements);
+
+
+        List<String> headers = getHeaderStringList();
+
+        List<WebElement> rows = driver.findElements(By.xpath("//table[@class='table table-striped cart-items']/tbody/tr"));
+        Map<String, String> rowMap = new HashMap<>();
+        String subTotalFromTable = "";
+
+        for (int i = 1; i <= rows.size(); i++) {
+            List<WebElement> cells = driver.findElements(By.xpath("//table[@class='table table-striped cart-items']/tbody/tr[" + i + "]/td"));
+
+            for (int j = 0; j < headers.size(); j++) {
+                rowMap.put(headers.get(j), cells.get(j).getText().trim());
+            }
+            logger.info("Row " + i + " Data: " + rowMap);
+
+            if (rowMap.get("Item").equals(itemName)) {
+                subTotalFromTable = rowMap.get("Subtotal");
+                break;
+            }
+        }
+        String subTotal = subTotalFromTable.replace("$", "");
+        return Double.parseDouble(subTotal);
+
+    }
+
+    private double getPrice(String itemName){
+        By rowElements = By.xpath("//tbody");
+        WaitUtil.waitForElementToLoad(driver, rowElements);
+
+
+        List<String> headers = getHeaderStringList();
+
+        List<WebElement> rows = driver.findElements(By.xpath("//table[@class='table table-striped cart-items']/tbody/tr"));
+        Map<String, String> rowMap = new HashMap<>();
+        String price = "";
+        String pricePerItem = "";
+        for (int i = 1; i <= rows.size(); i++) {
+            List<WebElement> cells = driver.findElements(By.xpath("//table[@class='table table-striped cart-items']/tbody/tr[" + i + "]/td"));
+
+            for (int j = 0; j < headers.size(); j++) {
+                rowMap.put(headers.get(j), cells.get(j).getText().trim());
+            }
+            logger.info("Row " + i + " Data: " + rowMap);
+
+            if (rowMap.get("Item").equals(itemName)) {
+                 price = rowMap.get("Price");
+                break;
+            }
+
+        }
+
+        pricePerItem = price.replace("$", "");
+        return Double.parseDouble(pricePerItem);
 
     }
 
