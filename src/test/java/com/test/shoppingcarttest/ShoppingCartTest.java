@@ -7,9 +7,9 @@ import com.pageobjects.ShoppingMenuPage;
 import org.testng.Assert;
 
 public class ShoppingCartTest extends BaseTest {
-    @org.testng.annotations.Test(description = "This test validates ")
+    @org.testng.annotations.Test(description = "This test validates behavior of selecting items from shopping menu then validating information on cart page")
     public void testShoppingCart() {
-        logger = extent.createTest("To verify Jupiter toys page title");
+        logger = extent.createTest("To verify cart page information as per items selected from shopping menu");
         given(" you arrive on jupiter toys page");
         HomePage homePage = new HomePage(driver);
         homePage.clickOnStartShoppingButton();
@@ -21,11 +21,11 @@ public class ShoppingCartTest extends BaseTest {
         shoppingMenuPage.clickBuyValentineBearButton(3);
         shoppingMenuPage.clickCartButton();
 
-        and("Go to the cart page");
+        and(" Go to the cart page");
         CartPage cartPage = new CartPage(driver);
         Assert.assertEquals(cartPage.getTitle(), "Jupiter Toys");
 
-        then("on the cart page you will see subtotal for each item");
+        then(" on the cart page you will see subtotal for each item");
         Assert.assertTrue(cartPage.findIfSubtotalForItemIsCorrect(2, "Stuffed Frog"));
         Assert.assertTrue(cartPage.findIfSubtotalForItemIsCorrect(5, "Fluffy Bunny"));
         Assert.assertTrue(cartPage.findIfSubtotalForItemIsCorrect(3, "Valentine Bear"));
@@ -35,7 +35,7 @@ public class ShoppingCartTest extends BaseTest {
         Assert.assertTrue(cartPage.verifyPriceForEachProduct("Fluffy Bunny"));
         Assert.assertTrue(cartPage.verifyPriceForEachProduct("Valentine Bear"));
 
-        then("correct total of all the sub tototals will be shown on cart page");
+        then(" correct total of all the sub tototals will be shown on cart page");
         double subTotalForStuffedFrogs = cartPage.getSubtotal("Stuffed Frog");
         double subtotalForFluffyBunny = cartPage.getSubtotal("Fluffy Bunny");
         double subTotalForValentineBear = cartPage.getSubtotal("Valentine Bear");

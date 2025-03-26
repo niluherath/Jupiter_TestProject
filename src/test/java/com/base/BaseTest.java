@@ -6,7 +6,6 @@ import com.github.javafaker.Faker;
 import com.utils.ConfigLoader;
 import com.utils.DateUtil;
 import com.utils.ExtentManager;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -20,7 +19,6 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-import com.aventstack.extentreports.reporter.configuration.Theme;
 
 
 public abstract class BaseTest {
@@ -29,8 +27,7 @@ public abstract class BaseTest {
     protected ExtentSparkReporter spark;
     protected ExtentReports extent;
     protected ExtentTest logger;
-
-    private static String PROPERTY_USER_DIR = "user.dir";
+    private static final String PROPERTY_USER_DIR = "user.dir";
     Faker faker = new Faker();
     protected String name = faker.name().fullName();
     protected String emailAddress = faker.name().firstName()+"@gmail.com";
@@ -39,20 +36,10 @@ public abstract class BaseTest {
 
     @BeforeClass
     public void startReport() {
-      //  extent = new ExtentReports();
-      //  String timeStamp = DateUtil.getDateInyyyyMMddhhmmssFormat();
-
-     //   spark = new ExtentSparkReporter(System.getProperty(PROPERTY_USER_DIR) + "/target/ExtentReport."+timeStamp+".html");
-     //   extent.attachReporter(spark);
-
-
         extent = ExtentManager.getInstance();
         extent.setSystemInfo("Host Name", "Jupiter toys project");
         extent.setSystemInfo("Environment", "");
         extent.setSystemInfo("User Name", "Nilu Herath");
-        //spark.config().setDocumentTitle("Jupiter toys Project");
-        //spark.config().setReportName("Jupiter toys Test Project ");
-        //spark.config().setTheme(Theme.STANDARD);
     }
 
     public static String getScreenShot(WebDriver driver, String screenshotName) throws IOException {
@@ -70,7 +57,7 @@ public abstract class BaseTest {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
-       // options.addArguments("--headless");
+        options.addArguments("--headless");
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.navigate().to(ConfigLoader.getInstance().getBaseURL());

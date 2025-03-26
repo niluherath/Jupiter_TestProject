@@ -35,9 +35,9 @@ public class ContactPageTest extends BaseTest {
         Assert.assertFalse(contactPage.validateMessageRequired());
     }
 
-    @org.testng.annotations.Test(description = "")
+    @org.testng.annotations.Test(description = "This test validates successful submission on contact page form")
     public void testContactPageFormSucessfulSubmission() {
-        logger = extent.createTest("To verify contact page form submission sucessful submission");
+        logger = extent.createTest("To verify contact page form submission successful submission");
         given(" you arrive on jupiter toys page");
         when(" you go From the home page go to contact page");
         HomePage homePage = new HomePage(driver);
