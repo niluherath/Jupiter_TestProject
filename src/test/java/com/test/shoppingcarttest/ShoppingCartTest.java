@@ -22,6 +22,7 @@ public class ShoppingCartTest extends BaseTest {
 
         CartPage cartPage = new CartPage(driver);
         Assert.assertEquals(cartPage.getTitle(), "Jupiter Toys");
+
         Assert.assertTrue(cartPage.findIfSubtotalForItemIsCorrect(2, "Stuffed Frog"));
         Assert.assertTrue(cartPage.findIfSubtotalForItemIsCorrect(5, "Fluffy Bunny"));
         Assert.assertTrue(cartPage.findIfSubtotalForItemIsCorrect(3, "Valentine Bear"));
@@ -29,8 +30,6 @@ public class ShoppingCartTest extends BaseTest {
         Assert.assertTrue(cartPage.verifyPriceForEachProduct("Stuffed Frog"));
         Assert.assertTrue(cartPage.verifyPriceForEachProduct("Fluffy Bunny"));
         Assert.assertTrue(cartPage.verifyPriceForEachProduct("Valentine Bear"));
-
-
 
         double subTotalForStuffedFrogs = cartPage.getSubtotal("Stuffed Frog");
         double subtotalForFluffyBunny = cartPage.getSubtotal("Fluffy Bunny");
