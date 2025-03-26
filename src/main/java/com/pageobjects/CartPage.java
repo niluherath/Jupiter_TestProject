@@ -15,8 +15,8 @@ import java.util.Map;
 public class CartPage extends BasePage {
 
     private WebDriver driver;
-    private By buyStuffedFrogButton = By.xpath("//li[@id='product-2']//a[@class='btn btn-success'][normalize-space()='Buy']");
-    private By total = By.xpath("//strong[@class='total ng-binding']");
+    private final By buyStuffedFrogButton = By.xpath("//li[@id='product-2']//a[@class='btn btn-success'][normalize-space()='Buy']");
+    private final By total = By.xpath("//strong[@class='total ng-binding']");
     private static final String TBODY = "//tbody";
     private static final String ROW = "//table[@class='table table-striped cart-items']/tbody/tr";
     private static final String CELL_PATH = "//table[@class='table table-striped cart-items']/tbody/tr[";
@@ -41,6 +41,7 @@ public class CartPage extends BasePage {
                 break;
             default:
                 logger.info("could not find item name");
+                return false;
         }
         subTotalCalculation = unitPrice * noOfItems;
         String subTotal = "$" + subTotalCalculation;
