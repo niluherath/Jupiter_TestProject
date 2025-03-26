@@ -6,7 +6,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class CartPage extends BasePage {
@@ -61,23 +64,31 @@ public class CartPage extends BasePage {
         System.out.println(noOfItems);
         By rowElements = By.xpath("//tbody");
         WaitUtil.waitForElementToLoad(driver, rowElements);
+
+        List<WebElement> headerElements = driver.findElements(By.xpath("//table[@class='table table-striped cart-items']/thead/tr/th"));
+        List<String> headers = new ArrayList<>();
+        for (WebElement header : headerElements) {
+            headers.add(header.getText().trim());  // Store headers in a List
+        }
+        System.out.println("Headers: " + headers);
+
         List<WebElement> rows = driver.findElements(By.xpath("//table[@class='table table-striped cart-items']/tbody/tr"));
-        System.out.println(rows.size()+ " row size");
-        boolean foundSubtotal = false;
-        for (WebElement row : rows) {
-            System.out.println(row.getText());
-            if(row.getText().contains(itemName)&& row.getText().contains(subTotal)){
-                foundSubtotal = true;
+        Map<String, String> rowMap = new HashMap<>();
+        boolean found = false;
+
+        for (int i = 1; i <= rows.size(); i++) {
+            List<WebElement> cells = driver.findElements(By.xpath("//table[@class='table table-striped cart-items']/tbody/tr[" + i + "]/td"));
+
+            for (int j = 0; j < headers.size(); j++) {
+                rowMap.put(headers.get(j), cells.get(j).getText().trim());
+            }
+            System.out.println("Row " + i + " Data: " + rowMap);
+
+            if (rowMap.get("Item").equals(itemName) && rowMap.get("Subtotal").equals(subTotal)) {
+                found = true;
                 break;
             }
         }
-        return foundSubtotal;
+        return found;
     }
-
-
-
-
-
-
-
 }

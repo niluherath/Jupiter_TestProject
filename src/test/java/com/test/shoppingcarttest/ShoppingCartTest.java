@@ -20,9 +20,9 @@ public class ShoppingCartTest extends BaseTest {
         shoppingMenuPage.clickCartButton();
         CartPage cartPage = new CartPage(driver);
         Assert.assertEquals(cartPage.getTitle(), "Jupiter Toys");
-        Assert.assertTrue(cartPage.findIfSubtotalForItemIsCorrect(3, "Stuffed Frog"));
-
-
+        Assert.assertTrue(cartPage.findIfSubtotalForItemIsCorrect(2, "Stuffed Frog"));
+        Assert.assertTrue(cartPage.findIfSubtotalForItemIsCorrect(5, "Fluffy Bunny"));
+        Assert.assertTrue(cartPage.findIfSubtotalForItemIsCorrect(3, "Valentine Bear"));
 
     }
 }
