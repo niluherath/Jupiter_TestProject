@@ -13,16 +13,30 @@ public class ShoppingCartTest extends BaseTest {
         when(" Driver call the url");
         HomePage homePage = new HomePage(driver);
         homePage.clickOnStartShoppingButton();
+
         ShoppingMenuPage shoppingMenuPage = new ShoppingMenuPage(driver);
         shoppingMenuPage.clickBuyStuffedFrogButton(2);
         shoppingMenuPage.clickBuyFluffyBunnyButton(5);
         shoppingMenuPage.clickBuyValentineBearButton(3);
         shoppingMenuPage.clickCartButton();
+
         CartPage cartPage = new CartPage(driver);
         Assert.assertEquals(cartPage.getTitle(), "Jupiter Toys");
         Assert.assertTrue(cartPage.findIfSubtotalForItemIsCorrect(2, "Stuffed Frog"));
         Assert.assertTrue(cartPage.findIfSubtotalForItemIsCorrect(5, "Fluffy Bunny"));
         Assert.assertTrue(cartPage.findIfSubtotalForItemIsCorrect(3, "Valentine Bear"));
+
+        Assert.assertTrue(cartPage.verifyPriceForEachProduct("Stuffed Frog"));
+        Assert.assertTrue(cartPage.verifyPriceForEachProduct("Fluffy Bunny"));
+        Assert.assertTrue(cartPage.verifyPriceForEachProduct("Valentine Bear"));
+
+        double subTotalForStuffedFrogs = cartPage.findSubtotal(2, "Stuffed Frog");
+        double subtotalForFluffyBunny = cartPage.findSubtotal(5, "Fluffy Bunny");
+        double subTotalForValentineBear = cartPage.findSubtotal(3, "Valentine Bear");
+        double total = subTotalForStuffedFrogs + subTotalForValentineBear + subtotalForFluffyBunny;
+        System.out.println(cartPage.getTotal());
+        Assert.assertEquals(cartPage.getTotal(), total);
+
 
     }
 }
