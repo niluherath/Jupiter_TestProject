@@ -15,7 +15,7 @@ import java.util.Map;
 public class CartPage extends BasePage {
 
     private WebDriver driver;
-    private final By buyStuffedFrogButton = By.xpath("//li[@id='product-2']//a[@class='btn btn-success'][normalize-space()='Buy']");
+    //private final By buyStuffedFrogButton = By.xpath("//li[@id='product-2']//a[@class='btn btn-success'][normalize-space()='Buy']");
     private final By total = By.xpath("//strong[@class='total ng-binding']");
     private static final String TBODY = "//tbody";
     private static final String ROW = "//table[@class='table table-striped cart-items']/tbody/tr";
@@ -23,7 +23,6 @@ public class CartPage extends BasePage {
 
     public CartPage(WebDriver driver) {
         this.driver = driver;
-        WaitUtil.waitForElementToLoad(driver, buyStuffedFrogButton);
     }
 
     public String getTitle() {
