@@ -86,6 +86,7 @@ public class CartPage extends BasePage {
                 break;
             default:
                 logger.info("could not find item name");
+                return false;
         }
 
         By rowElements = By.xpath(TBODY);
